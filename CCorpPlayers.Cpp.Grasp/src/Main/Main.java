@@ -1,24 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Main;
 
-import java.io.InputStream;
-import java.nio.file.Files;
+import Estructuras.Vertice;
+import java.util.ArrayList;
 
-/**
- *
- * @author Guti
- */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
-        // TODO code application logic here
         String cad,parte1,parte2;
         cad = "Hola mundo";
         int i;
@@ -31,5 +18,8 @@ public class Main {
         String ruta=System.getProperty("user.dir")+"/Input.txt";
         System.out.println("Working Directory = " + ruta );
         //InputStream input = Files.newInputStream(ruta, CREATE);
+        
+        
+        
     }
 }

@@ -1,21 +1,21 @@
 package Estructuras;
 
 public class Arista {
-    private int tiempoServicio;
-    private int tiempoCruce;
+    private float tiempoServicio;
+    private float tiempoCruce;
     private boolean recorrido;
     
     
-    public int getTiempoServicio() {
+    public float getTiempoServicio() {
         return tiempoServicio;
     }
-    public void setTiempoServicio(int tiempoServicio) {
+    public void setTiempoServicio(float tiempoServicio) {
         this.tiempoServicio = tiempoServicio;
     }
-    public int getTiempoCruce() {
+    public float getTiempoCruce() {
         return tiempoCruce;
     }
-    public void setTiempoCruce(int tiempoCruce) {
+    public void setTiempoCruce(float tiempoCruce) {
         this.tiempoCruce = tiempoCruce;
     }
     public boolean isRecorrido() {

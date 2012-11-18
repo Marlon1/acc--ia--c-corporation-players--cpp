@@ -32,4 +32,8 @@ public class Camino {
     public void setViento(float viento) {
         this.viento = viento;
     }
+    public float getTiempo(){
+        if(arista.isRecorrido()) return arista.getTiempoCruce()*(1+viento);
+        else return (arista.getTiempoServicio() + arista.getTiempoCruce()*(1+viento));
+    }
 }
