@@ -12,8 +12,17 @@ public class Solucion {
     private ArrayList<Vertice> vertices;
     private float tiempo_total=0;
 
-    
-    public void add(Vertice v){
+    public void mejorSolucion(Solucion A, Solucion B){
+        if(A.tiempo_total<=B.tiempo_total){
+            this.vertices=A.vertices;
+            this.tiempo_total=A.tiempo_total;
+        }
+        else{
+            this.vertices=B.vertices;
+            this.tiempo_total=B.tiempo_total;
+        }
+    }
+    public void agregar(Vertice v){
         vertices.add(v);
     }
     public void incrementarTiempo(float tiempo){
