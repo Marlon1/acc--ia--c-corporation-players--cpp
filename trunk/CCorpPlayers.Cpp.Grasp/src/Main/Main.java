@@ -2,24 +2,20 @@ package Main;
 
 import Estructuras.Vertice;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
-        String cad,parte1,parte2;
-        cad = "Hola mundo";
+        //leerDatos();
+        //Construccion();
+        //mejora();
+        //imprimir resultado;
         int i;
-        for(i=0;cad.charAt(i)!=' ';i++);
-        System.out.println(i);
-        parte1=cad.substring(0, i);
-        parte2=cad.substring(i+1, cad.length());
-        System.out.println(parte1);
-        System.out.println(parte2);
-        String ruta=System.getProperty("user.dir")+"/Input.txt";
-        System.out.println("Working Directory = " + ruta );
-        //InputStream input = Files.newInputStream(ruta, CREATE);
-        
-        
-        
+        Random ran=new Random(System.currentTimeMillis());
+        for(int j=0;j<100;j++){
+            i=ran.nextInt(4+1);
+            System.out.println(i);
+        }
     }
 }

@@ -36,4 +36,7 @@ public class Camino {
         if(arista.isRecorrido()) return arista.getTiempoCruce()*(1+viento);
         else return (arista.getTiempoServicio() + arista.getTiempoCruce()*(1+viento));
     }
+    public float funcionObjetivo(){
+        return getTiempo();
+    }
 }
