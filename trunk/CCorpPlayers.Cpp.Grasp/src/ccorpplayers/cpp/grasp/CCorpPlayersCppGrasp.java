@@ -16,12 +16,14 @@ public class CCorpPlayersCppGrasp {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
         // TODO code application logic here
-        String cad;
+        String cad,parte1,parte2;
         cad = "Hola mundo";
         int i;
         for(i=0;cad.charAt(i)!=' ';i++);
         System.out.println(i);
-        cad=cad.substring(0, i);
-        System.out.println(cad);
+        parte1=cad.substring(0, i);
+        parte2=cad.substring(i+1, cad.length());
+        System.out.println(parte1);
+        System.out.println(parte2);
     }
 }
