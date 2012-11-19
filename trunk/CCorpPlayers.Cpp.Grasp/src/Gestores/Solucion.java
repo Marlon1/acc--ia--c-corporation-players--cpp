@@ -9,8 +9,8 @@ import Estructuras.Vertice;
 
 
 public class Solucion {
-    private ArrayList<Vertice> vertices;
-    private float tiempo_total=0;
+    private ArrayList<Vertice> vertices=new ArrayList<Vertice>();
+    private double tiempo_total=0;
 
     public void mejorSolucion(Solucion A, Solucion B){
         if(A.tiempo_total<=B.tiempo_total){
@@ -24,8 +24,9 @@ public class Solucion {
     }
     public void agregar(Vertice v){
         vertices.add(v);
+        System.out.println(v.getNombre());
     }
-    public void incrementarTiempo(float tiempo){
+    public void incrementarTiempo(double tiempo){
         tiempo_total+=tiempo;
     }
     /**
@@ -45,14 +46,22 @@ public class Solucion {
     /**
      * @return the tiempo_total
      */
-    public float getTiempo_total() {
+    public double getTiempo_total() {
         return tiempo_total;
     }
 
     /**
      * @param tiempo_total the tiempo_total to set
      */
-    public void setTiempo_total(float tiempo_total) {
+    public void setTiempo_total(double tiempo_total) {
         this.tiempo_total = tiempo_total;
+    }
+
+    public void imprimir() {
+        System.out.println();
+        System.out.println("Tiempo total: "+tiempo_total);
+//        for(int i=0;i<vertices.size();i++){
+//            System.out.println(vertices.get(i).getNombre());
+//        }
     }
 }

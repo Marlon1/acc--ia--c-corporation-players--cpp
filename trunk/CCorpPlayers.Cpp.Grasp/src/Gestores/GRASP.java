@@ -15,9 +15,9 @@ public class GRASP {
     private ArrayList<Vertice> V;
     private Solucion S;
     private Vertice inicio;
-            
+    Random ran=new Random(System.currentTimeMillis());        
 
-    public Solucion resolver(ArrayList<Vertice> V_, ArrayList<Arista> A_,  Vertice inicio_,float alfa){
+    public Solucion resolver(ArrayList<Vertice> V_, ArrayList<Arista> A_,  Vertice inicio_,double alfa){
         Camino beta,tau;        
         Camino camino;
         Arista arista;
@@ -39,17 +39,19 @@ public class GRASP {
             S.agregar(posicion);
             S.incrementarTiempo(camino.getTiempo());
             arista=camino.getArista();
-            if(!arista.isRecorrido()){
-                A.remove(camino.getArista());
-                camino.getArista().setRecorrido(true);
-            }
+//            if(!arista.isRecorrido()){
+                A.remove(arista);
+                arista.setRecorrido(true);
+//            }
         }
         return S;
     }
 
     private void inicializar(ArrayList<Arista> A_, ArrayList<Vertice> V_, Vertice inicio_) {
         //no se bien qué deberia haber aquí
-        throw new UnsupportedOperationException("Not yet implemented");
+        A=A_;
+        V=V_;
+        inicio=inicio_;
     }
 
     private Camino max(Vertice posicion) {
@@ -76,22 +78,26 @@ public class GRASP {
         return min;
     }
 
-    private Camino hallarAleatorio(Vertice posicion, float alfa, Camino beta, Camino tau) {
+    private Camino hallarAleatorio(Vertice posicion, double alfa, Camino beta, Camino tau) {
         //lista vacia
         Camino cam=null;
         ArrayList<Camino> candidatos=new ArrayList<>();
         int i;
-        float f_beta=beta.funcionObjetivo();
-        float f_tau=tau.funcionObjetivo();
+        double f_beta=beta.funcionObjetivo();
+        double f_tau=tau.funcionObjetivo();
         //llenamos lista
         ArrayList<Camino> listaCamino=posicion.getListaCaminos();
+        double lim_inf=f_beta-alfa*(f_beta-f_tau);
+        double lim_sup=f_beta;
+        double f_cam;
         for(i=0;i<listaCamino.size();i++){
             cam=listaCamino.get(i);
-            if( (cam.funcionObjetivo()>=f_beta) && (cam.funcionObjetivo()<=(f_beta+alfa*(f_tau-f_beta))) )
+            f_cam=cam.funcionObjetivo();
+            if( (f_cam<=lim_sup) && (f_cam>=lim_inf) )
                 candidatos.add(listaCamino.get(i));
         }
         //elegimos aleatoriamente
-        Random ran=new Random(System.currentTimeMillis());
+        
         i=ran.nextInt(candidatos.size());
         //return  
         return candidatos.get(i);
