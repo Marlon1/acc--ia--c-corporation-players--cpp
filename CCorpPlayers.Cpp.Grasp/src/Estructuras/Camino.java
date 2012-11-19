@@ -11,9 +11,14 @@ package Estructuras;
 public class Camino {
     private Arista arista;
     private Vertice destino;
-    private float viento;
-
-
+    private double viento;
+    
+    
+    public Camino(Arista a, Vertice d, double v){
+        this.arista=a;
+        this.destino=d;
+        this.viento=v;
+    }
     public Arista getArista() {
         return arista;
     }
@@ -26,17 +31,23 @@ public class Camino {
     public void setDestino(Vertice destino) {
         this.destino = destino;
     }
-    public float getViento() {
+    public double getViento() {
         return viento;
     }
-    public void setViento(float viento) {
+    public void setViento(double viento) {
         this.viento = viento;
     }
-    public float getTiempo(){
+    public double getTiempo(){
         if(arista.isRecorrido()) return arista.getTiempoCruce()*(1+viento);
         else return (arista.getTiempoServicio() + arista.getTiempoCruce()*(1+viento));
     }
-    public float funcionObjetivo(){
-        return getTiempo();
+    public double funcionObjetivo(){
+        int i;
+        if(arista.isRecorrido())
+            i=0;
+        else
+            i=1;
+        return i*(arista.getTiempoServicio() + arista.getTiempoCruce()*(1+viento));
+        
     }
 }
