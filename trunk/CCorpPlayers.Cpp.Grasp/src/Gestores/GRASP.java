@@ -23,7 +23,8 @@ public class GRASP {
         Arista arista;
         
         //no se si esto va:
-        inicializar(A_,V_,inicio_); //copiar
+        inicializar2(A_,V_,inicio_); //copiar
+        //Main.Main.imprimir(V);
         
         Vertice posicion=inicio;
         S=new Solucion();
@@ -39,21 +40,55 @@ public class GRASP {
             S.agregar(posicion);
             S.incrementarTiempo(camino.getTiempo());
             arista=camino.getArista();
-//            if(!arista.isRecorrido()){
+            if(!arista.isRecorrido()){
                 A.remove(arista);
                 arista.setRecorrido(true);
-//            }
+            }
         }
         return S;
     }
 
-    private void inicializar(ArrayList<Arista> A_, ArrayList<Vertice> V_, Vertice inicio_) {
+    private void inicializar(ArrayList<Arista> A, ArrayList<Vertice> V, Vertice inicio) {
         //no se bien qué deberia haber aquí
-        A=A_;
-        V=V_;
-        inicio=inicio_;
+//        this.A=A;
+//        this.V=V;
+        this.inicio=inicio;
+        
+        this.A=new ArrayList<Arista>();
+        Arista a,temp;
+        for(int i=0;i<A.size();i++){
+            temp=A.get(i);
+            a=new Arista(temp.getNombre(), temp.getTiempoCruce(), temp.getTiempoServicio());
+            this.A.add(a);
+        }
+        
+        this.V=new ArrayList<Vertice>();
+        Vertice v;
+        for(int i=0;i<V.size();i++){
+            v=new Vertice(V.get(i).getNombre());
+            this.V.add(v);
+        }
+        ArrayList<Camino> caminos;
+        Camino c,tempc;
+        
+        for(int i=0;i<V.size();i++){
+            caminos=V.get(i).getListaCaminos();
+            for(int j=0;j<caminos.size();j++){
+                tempc=caminos.get(j);
+                a=this.A.get(A.indexOf(tempc.getArista()));
+                v=this.V.get(V.indexOf(tempc.getDestino()));
+                c=new Camino(a, v, tempc.getViento());
+                this.V.get(i).agregarCamino(c);
+            }           
+        }
+        
     }
-
+    private void inicializar2(ArrayList<Arista> A, ArrayList<Vertice> V, Vertice inicio) {
+        //no se bien qué deberia haber aquí
+        this.A=A;
+        this.V=V;
+        this.inicio=inicio;
+    }
     private Camino max(Vertice posicion) {
         ArrayList<Camino> listaCaminos=posicion.getListaCaminos();
         Camino max=listaCaminos.get(0);

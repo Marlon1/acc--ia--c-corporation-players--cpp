@@ -12,19 +12,25 @@ public class Solucion {
     private ArrayList<Vertice> vertices=new ArrayList<Vertice>();
     private double tiempo_total=0;
 
-    public void mejorSolucion(Solucion A, Solucion B){
+    static public Solucion mejorSolucion(Solucion A, Solucion B){
+        
+        if(A==null) return B;
+        if(B==null) return A;
+        
+        Solucion s=new Solucion();
         if(A.tiempo_total<=B.tiempo_total){
-            this.vertices=A.vertices;
-            this.tiempo_total=A.tiempo_total;
+            s.vertices=A.vertices;
+            s.tiempo_total=A.tiempo_total;
         }
         else{
-            this.vertices=B.vertices;
-            this.tiempo_total=B.tiempo_total;
+            s.vertices=B.vertices;
+            s.tiempo_total=B.tiempo_total;
         }
+        return s;
     }
     public void agregar(Vertice v){
         vertices.add(v);
-        System.out.println(v.getNombre());
+        System.out.print(v.getNombre());
     }
     public void incrementarTiempo(double tiempo){
         tiempo_total+=tiempo;
