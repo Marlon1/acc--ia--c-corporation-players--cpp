@@ -42,7 +42,7 @@ public class Camino {
         else return (arista.getTiempoServicio() + arista.getTiempoCruce()*(1+viento));
     }
     public double funcionObjetivo(){
-        int i;
+        double i;
         if(arista.isRecorrido())
             i=0;
         else
