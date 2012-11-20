@@ -5,6 +5,7 @@
 package Vistas;
 
 import Algoritmos.GRASP;
+import Estructuras.Solucion;
 import javax.swing.JFrame;
 
 /**
@@ -38,6 +39,8 @@ public class VentanaPrincipal extends JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtAlfa = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,11 +58,17 @@ public class VentanaPrincipal extends JFrame {
             }
         });
 
-        txtRepeticiones.setText("30000");
+        txtRepeticiones.setText("3000");
 
         jLabel1.setText("Repeticiones");
 
         jLabel2.setText("Alfa");
+
+        txtAlfa.setText("0.65");
+
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,6 +90,10 @@ public class VentanaPrincipal extends JFrame {
                         .add(6, 6, 6)
                         .add(jButton2)))
                 .add(74, 74, 74))
+            .add(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -97,7 +110,9 @@ public class VentanaPrincipal extends JFrame {
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jButton1)
                     .add(jButton2))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -125,7 +140,9 @@ public class VentanaPrincipal extends JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         GRASP grasp = new GRASP();
-        grasp.ejecutar(Double.parseDouble(txtAlfa.getText()),Integer.parseInt(txtRepeticiones.getText()));
+        Solucion sol=grasp.ejecutar(Double.parseDouble(txtAlfa.getText()),Integer.parseInt(txtRepeticiones.getText()));
+        txtArea.setText(sol.getCadena());
+        //System.out.println(sol.getCadena());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -168,7 +185,9 @@ public class VentanaPrincipal extends JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtAlfa;
+    private javax.swing.JTextArea txtArea;
     private javax.swing.JTextField txtRepeticiones;
     // End of variables declaration//GEN-END:variables
 }

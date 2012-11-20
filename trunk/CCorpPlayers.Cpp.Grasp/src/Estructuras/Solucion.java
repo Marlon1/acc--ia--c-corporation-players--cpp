@@ -70,4 +70,16 @@ public class Solucion {
         System.out.println();
         System.out.println("Tiempo total: "+tiempo_total);
     }
+
+    public String getCadena() {
+        String cad="Mejor Solucion:\n";
+        for(int i=0;i<vertices.size();i++){
+            cad= cad.concat(vertices.get(i).getNombre()+" ");
+            if((i%12==11))
+                cad=cad.concat("\n");
+        }
+        cad=cad.concat("\n");
+        cad=cad.concat("Tiempo total: "+tiempo_total+"\n");
+        return cad;
+    }
 }
