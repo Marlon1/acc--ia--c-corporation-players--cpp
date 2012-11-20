@@ -66,7 +66,7 @@ public class GRASP {
                     int direccion = Integer.parseInt(direc);
 
 
-                    a = new Arista(nomArista, tiempoCruce, tiempoServicio);
+                    a = new Arista(nomArista, tiempoCruce, tiempoServicio,direccion);
                     getA().add(a);
 
                     c = new Camino(a, getV().get(vFinal), viento);

@@ -5,12 +5,14 @@ public class Arista {
     private double tiempoServicio;
     private double tiempoCruce;
     private boolean recorrido;
+    private int direccion;
     
-    public Arista(String nombre,double tiempoCruce,double tiempoServicio){
+    public Arista(String nombre,double tiempoCruce,double tiempoServicio,int direccion){
         this.nombre=nombre;
         this.tiempoCruce=tiempoCruce;
         this.tiempoServicio=tiempoServicio;
         this.recorrido=false;
+        this.direccion=direccion;
     }
     public double getTiempoServicio() {
         return tiempoServicio;
@@ -43,5 +45,19 @@ public class Arista {
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the direccion
+     */
+    public int getDireccion() {
+        return direccion;
+    }
+
+    /**
+     * @param direccion the direccion to set
+     */
+    public void setDireccion(int direccion) {
+        this.direccion = direccion;
     }
 }
