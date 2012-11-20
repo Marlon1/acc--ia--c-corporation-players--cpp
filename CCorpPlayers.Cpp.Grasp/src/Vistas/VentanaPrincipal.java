@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  * @author Guti
  */
 public class VentanaPrincipal extends JFrame {
-
+    
     Grafico ventana = null;
 
     /**
@@ -34,6 +34,10 @@ public class VentanaPrincipal extends JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        txtRepeticiones = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtAlfa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,25 +55,49 @@ public class VentanaPrincipal extends JFrame {
             }
         });
 
+        txtRepeticiones.setText("30000");
+
+        jLabel1.setText("Repeticiones");
+
+        jLabel2.setText("Alfa");
+
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(105, 105, 105)
+                .add(43, 43, 43)
+                .add(jButton1)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 44, Short.MAX_VALUE)
+                .add(jButton2)
+                .add(72, 72, 72))
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(60, 60, 60)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jButton1)
-                    .add(jButton2))
-                .addContainerGap(144, Short.MAX_VALUE))
+                    .add(jLabel1)
+                    .add(jLabel2))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(txtRepeticiones, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .add(txtAlfa))
+                .add(87, 87, 87))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(76, 76, 76)
-                .add(jButton1)
-                .add(27, 27, 27)
-                .add(jButton2)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .add(21, 21, 21)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(txtRepeticiones, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel1))
+                .add(18, 18, 18)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel2)
+                    .add(txtAlfa, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(43, 43, 43)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jButton2)
+                    .add(jButton1))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
@@ -97,7 +125,7 @@ public class VentanaPrincipal extends JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         GRASP grasp = new GRASP();
-        grasp.ejecutar(0.6);
+        grasp.ejecutar(Double.parseDouble(txtAlfa.getText()),Integer.parseInt(txtRepeticiones.getText()));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -137,6 +165,10 @@ public class VentanaPrincipal extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtAlfa;
+    private javax.swing.JTextField txtRepeticiones;
     // End of variables declaration//GEN-END:variables
 }
