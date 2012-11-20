@@ -5,12 +5,13 @@
 package Vistas;
 
 import Gestores.GRASP;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Guti
  */
-public class VentanaPrincipal extends javax.swing.JFrame {
+public class VentanaPrincipal extends JFrame {
 
     Grafico ventana = null;
 

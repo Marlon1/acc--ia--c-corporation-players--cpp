@@ -101,8 +101,8 @@ public class Lector {
                     int vY= Integer.parseInt(y);
                     
                     
-                    getV().get(nom).setX(vX);
-                    getV().get(nom).setX(vY);
+                    getV().get(nom-1).setX(vX);
+                    getV().get(nom-1).setY(vY);
                     
                 }
             } catch (IOException ex) {
@@ -142,7 +142,7 @@ public class Lector {
         Camino c;
         for (int i = 0; i < V.size(); i++) {
             v = V.get(i);
-            System.out.println(v.getNombre());
+            System.out.println(v.getNombre()+" ("+v.getX()+","+v.getY()+")");
             for (int j = 0; j < v.getListaCaminos().size(); j++) {
                 c = v.getListaCaminos().get(j);
                 System.out.println("    " + c.getArista().getNombre() + " " + c.getDestino().getNombre());
