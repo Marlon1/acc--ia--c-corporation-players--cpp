@@ -85,6 +85,35 @@ public class Lector {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GRASP.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            BufferedReader ar = new BufferedReader(new FileReader("vertices.txt"));
+            String linea=null;
+            String x,y,nombre;
+            try {
+                while ((linea = ar.readLine()) != null){
+                    StringTokenizer mistokens = new StringTokenizer(linea, "  ");
+                    nombre = mistokens.nextToken();
+                    x = mistokens.nextToken();
+                    y = mistokens.nextToken();
+                    
+                    int nom = Integer.parseInt(nombre);
+                    int vX= Integer.parseInt(x);
+                    int vY= Integer.parseInt(y);
+                    
+                    
+                    getV().get(nom).setX(vX);
+                    getV().get(nom).setX(vY);
+                    
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Lector.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Lector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+        
     }
 
     /**

@@ -16,7 +16,6 @@ public class Vertice {
     private int y;
     private ArrayList<Camino> listaCaminos=new ArrayList<Camino>();
     
-    
     public Vertice(int nombre){
         this.nombre=nombre;
     }
