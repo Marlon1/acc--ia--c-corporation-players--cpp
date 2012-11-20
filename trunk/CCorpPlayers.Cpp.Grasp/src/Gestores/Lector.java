@@ -37,9 +37,9 @@ public class Lector {
             try {
                 numV = br.readLine();
                 String verticeInicio = br.readLine();
-                int verticeIni = Integer.parseInt(verticeInicio) - 1;
+                int verticeIni = Integer.parseInt(verticeInicio)-1;
                 int numVertices = Integer.parseInt(numV);
-                for (int i = 0; i < numVertices; i++) {
+                for (int i = 1; i <= numVertices; i++) {
                     Vertice vertice = new Vertice(i);
                     getV().add(vertice);
                 }

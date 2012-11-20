@@ -89,6 +89,8 @@ public class GRASP {
     }
     private Camino max(Vertice posicion) {
         ArrayList<Camino> listaCaminos=posicion.getListaCaminos();
+        if(listaCaminos.size()==0)
+            System.out.println("Error Vertice: " + posicion.getNombre());
         Camino max=listaCaminos.get(0);
         Camino temp;
         for(int i=1;i<listaCaminos.size();i++){
