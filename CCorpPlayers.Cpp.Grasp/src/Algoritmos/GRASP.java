@@ -14,7 +14,6 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class GRASP {
 
     private ArrayList<Arista> A;
@@ -66,7 +65,7 @@ public class GRASP {
                     int direccion = Integer.parseInt(direc);
 
 
-                    a = new Arista(nomArista, tiempoCruce, tiempoServicio,direccion);
+                    a = new Arista(nomArista, tiempoCruce, tiempoServicio, direccion);
                     getA().add(a);
 
                     c = new Camino(a, getV().get(vFinal), viento);
@@ -120,7 +119,7 @@ public class GRASP {
         S = new Solucion();
         getS().setTiempo_total(0);
         getS().agregar(inicio);
-        int i=0;
+        int i = 0;
         while (!((posicion == inicio) && A.isEmpty())) {
             beta = max(posicion);
             tau = min(posicion);
@@ -145,44 +144,45 @@ public class GRASP {
 
     {/* private void inicializar(ArrayList<Arista> A, ArrayList<Vertice> V, Vertice inicio) {
 
-        this.inicio = inicio;
+         this.inicio = inicio;
 
-        this.A = new ArrayList<>();
-        Arista a, temp;
-        for (int i = 0; i < A.size(); i++) {
-            temp = A.get(i);
-            a = new Arista(temp.getNombre(), temp.getTiempoCruce(), temp.getTiempoServicio());
-            this.getA().add(a);
-        }
+         this.A = new ArrayList<>();
+         Arista a, temp;
+         for (int i = 0; i < A.size(); i++) {
+         temp = A.get(i);
+         a = new Arista(temp.getNombre(), temp.getTiempoCruce(), temp.getTiempoServicio());
+         this.getA().add(a);
+         }
 
-        this.V = new ArrayList<>();
-        Vertice v;
-        for (int i = 0; i < V.size(); i++) {
-            v = new Vertice(V.get(i).getNombre());
-            this.getV().add(v);
-        }
-        ArrayList<Camino> caminos;
-        Camino c, tempc;
+         this.V = new ArrayList<>();
+         Vertice v;
+         for (int i = 0; i < V.size(); i++) {
+         v = new Vertice(V.get(i).getNombre());
+         this.getV().add(v);
+         }
+         ArrayList<Camino> caminos;
+         Camino c, tempc;
 
-        for (int i = 0; i < V.size(); i++) {
-            caminos = V.get(i).getListaCaminos();
-            for (int j = 0; j < caminos.size(); j++) {
-                tempc = caminos.get(j);
-                a = this.getA().get(A.indexOf(tempc.getArista()));
-                v = this.getV().get(V.indexOf(tempc.getDestino()));
-                c = new Camino(a, v, tempc.getViento());
-                this.getV().get(i).agregarCamino(c);
-            }
-        }
+         for (int i = 0; i < V.size(); i++) {
+         caminos = V.get(i).getListaCaminos();
+         for (int j = 0; j < caminos.size(); j++) {
+         tempc = caminos.get(j);
+         a = this.getA().get(A.indexOf(tempc.getArista()));
+         v = this.getV().get(V.indexOf(tempc.getDestino()));
+         c = new Camino(a, v, tempc.getViento());
+         this.getV().get(i).agregarCamino(c);
+         }
+         }
 
-    }
+         }
 
-    private void inicializar2(ArrayList<Arista> A, ArrayList<Vertice> V, Vertice inicio) {
-        //no se bien qué deberia haber aquí
-        this.A = A;
-        this.V = V;
-        this.inicio = inicio;
-    }*/
+         private void inicializar2(ArrayList<Arista> A, ArrayList<Vertice> V, Vertice inicio) {
+         //no se bien qué deberia haber aquí
+         this.A = A;
+         this.V = V;
+         this.inicio = inicio;
+         }*/
+
     }
 
     private Camino max(Vertice posicion) {
@@ -241,7 +241,7 @@ public class GRASP {
         return candidatos.get(i);
     }
 
-    public void ejecutar(double alfa,int rep) {
+    public Solucion ejecutar(double alfa, int rep) {
         Solucion mejor_sol = null;
         for (int k = 0; k < rep; k++) {
             leerArchivo();
@@ -256,6 +256,7 @@ public class GRASP {
 //        imprimirVertices();
         System.out.println("Mejor Solucion (alfa: " + alfa + ")");
         mejor_sol.imprimir();
+        return mejor_sol;
     }
 
     public void imprimirCaminos(Vertice posicion) {
@@ -273,19 +274,23 @@ public class GRASP {
             imprimirCaminos(getV().get(i));
         }
     }
+
     public ArrayList<Arista> getA() {
         return A;
     }
+
     public ArrayList<Vertice> getV() {
         return V;
     }
+
     public Solucion getS() {
         return S;
     }
 
     private void imprimirAristas() {
         System.out.println("Lista de Aristas: ");
-        for(int i=0; i<A.size();i++)
+        for (int i = 0; i < A.size(); i++) {
             System.out.println(A.get(i).getNombre());
+        }
     }
 }
