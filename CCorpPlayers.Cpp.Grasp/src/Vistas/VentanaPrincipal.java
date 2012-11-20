@@ -5,11 +5,14 @@
 package Vistas;
 
 import Gestores.GRASP;
+
 /**
  *
  * @author Guti
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+
+    Grafico ventana = null;
 
     /**
      * Creates new form VentanaPrincipal
@@ -83,12 +86,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //Clase ventana=new Ventana();
-        //ventana.setVisible(true);
+        if (ventana == null) {
+            ventana = new Grafico();
+            ventana.setVisible(true);
+        } else {
+            ventana.dispose();
+            ventana = new Grafico();
+            ventana.setVisible(true);
+        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        GRASP grasp=new GRASP();
+        GRASP grasp = new GRASP();
         grasp.ejecutar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
