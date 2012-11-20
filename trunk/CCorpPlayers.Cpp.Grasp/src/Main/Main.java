@@ -22,6 +22,7 @@ public class Main {
             }
         }
         System.out.println();
+        //Lector.Imprimir
         System.out.println("Mejor Solucion (alfa: "+alfa+")");
         mejor_sol.imprimir();
     }

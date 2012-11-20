@@ -12,11 +12,18 @@ import java.util.ArrayList;
  */
 public class Vertice {
     private int nombre;
+    private int x;
+    private int y;
     private ArrayList<Camino> listaCaminos=new ArrayList<Camino>();
     
     
     public Vertice(int nombre){
         this.nombre=nombre;
+    }
+    public Vertice(int nombre,int x, int y){
+        this.nombre=nombre;
+        this.x=x;
+        this.y=y;
     }
     public ArrayList<Camino> getListaCaminos() {
         return listaCaminos;
@@ -45,5 +52,33 @@ public class Vertice {
      */
     public void setNombre(int nombre) {
         this.nombre = nombre;
+    }
+
+    /**
+     * @return the x
+     */
+    public int getX() {
+        return x;
+    }
+
+    /**
+     * @param x the x to set
+     */
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    /**
+     * @return the y
+     */
+    public int getY() {
+        return y;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(int y) {
+        this.y = y;
     }
 }
