@@ -251,9 +251,9 @@ public class GRASP {
                 mejor_sol = Solucion.mejorSolucion(mejor_sol, sol);
             }
         }
-        System.out.println();
-        leerArchivo();
-        imprimirVertices();
+//        System.out.println();
+//        leerArchivo();
+//        imprimirVertices();
         System.out.println("Mejor Solucion (alfa: " + alfa + ")");
         mejor_sol.imprimir();
     }
