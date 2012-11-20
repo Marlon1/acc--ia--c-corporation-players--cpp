@@ -14,10 +14,7 @@ import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Guti
- */
+
 public class GRASP {
 
     private ArrayList<Arista> A;
@@ -38,7 +35,7 @@ public class GRASP {
                 String verticeInicio = br.readLine();
                 int verticeIni = Integer.parseInt(verticeInicio);
                 int numVertices = Integer.parseInt(numV);
-                for (int i = 1; i <= numVertices; i++) {
+                for (int i = 0; i < numVertices; i++) {
                     Vertice vertice = new Vertice(i);
                     V.add(vertice);
                 }
@@ -111,6 +108,7 @@ public class GRASP {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         }
+        //imprimirVertices();
     }
 
     public Solucion construirSolucion(double alfa) {
@@ -122,6 +120,7 @@ public class GRASP {
         S = new Solucion();
         getS().setTiempo_total(0);
         getS().agregar(inicio);
+        int i=0;
         while (!((posicion == inicio) && A.isEmpty())) {
             beta = max(posicion);
             tau = min(posicion);
@@ -136,6 +135,10 @@ public class GRASP {
                 getA().remove(arista);
                 arista.setRecorrido(true);
             }
+//            if(i++==1000){
+//                imprimirAristas();
+//                i=0;
+//            }
         }
         return getS();
     }
@@ -238,13 +241,13 @@ public class GRASP {
         return candidatos.get(i);
     }
 
-    public void ejecutar(double alfa) {
+    public void ejecutar(double alfa,int rep) {
         Solucion mejor_sol = null;
-        for (int k = 0; k < 3000; k++) {
+        for (int k = 0; k < rep; k++) {
             leerArchivo();
             Solucion sol = construirSolucion(alfa);
             if (sol.getTiempo_total() >= 0.001) {
-                sol.imprimir();
+                //sol.imprimir();
                 mejor_sol = Solucion.mejorSolucion(mejor_sol, sol);
             }
         }
@@ -278,5 +281,11 @@ public class GRASP {
     }
     public Solucion getS() {
         return S;
+    }
+
+    private void imprimirAristas() {
+        System.out.println("Lista de Aristas: ");
+        for(int i=0; i<A.size();i++)
+            System.out.println(A.get(i).getNombre());
     }
 }

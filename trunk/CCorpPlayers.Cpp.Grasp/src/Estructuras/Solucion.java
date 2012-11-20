@@ -30,7 +30,7 @@ public class Solucion {
     }
     public void agregar(Vertice v){
         vertices.add(v);
-        System.out.println(v.getNombre());
+        //System.out.println(v.getNombre());
     }
     public void incrementarTiempo(double tiempo){
         tiempo_total+=tiempo;
@@ -64,9 +64,9 @@ public class Solucion {
     }
 
     public void imprimir() {        
-//        for(int i=0;i<vertices.size();i++){
-//            System.out.print(vertices.get(i).getNombre()+" ");
-//        }
+        for(int i=0;i<vertices.size();i++){
+            System.out.print(vertices.get(i).getNombre()+" ");
+        }
         System.out.println();
         System.out.println("Tiempo total: "+tiempo_total);
     }
