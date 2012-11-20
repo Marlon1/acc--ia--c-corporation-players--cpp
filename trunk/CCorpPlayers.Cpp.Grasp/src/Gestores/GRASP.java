@@ -49,9 +49,7 @@ public class GRASP {
     }
 
     private void inicializar(ArrayList<Arista> A, ArrayList<Vertice> V, Vertice inicio) {
-        //no se bien qué d eberia haber aquí
-//        this.A=A;
-//        this.V=V;
+
         this.inicio=inicio;
         
         this.A=new ArrayList<Arista>();
