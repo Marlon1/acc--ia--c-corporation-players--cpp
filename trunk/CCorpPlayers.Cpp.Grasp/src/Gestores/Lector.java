@@ -108,4 +108,17 @@ public class Lector {
     static public Vertice getVerticeInicial() {
         return v1;
     }
+
+    static public void imprimirV() {
+        Vertice v;
+        Camino c;
+        for (int i = 0; i < V.size(); i++) {
+            v = V.get(i);
+            System.out.println(v.getNombre());
+            for (int j = 0; j < v.getListaCaminos().size(); j++) {
+                c = v.getListaCaminos().get(j);
+                System.out.println("    " + c.getArista().getNombre() + " " + c.getDestino().getNombre());
+            }
+        }
+    }
 }

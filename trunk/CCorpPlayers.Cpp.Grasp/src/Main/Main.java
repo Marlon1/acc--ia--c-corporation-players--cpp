@@ -22,21 +22,11 @@ public class Main {
             }
         }
         System.out.println();
-        //Lector.Imprimir
+        Lector.leerArchivo();
+        Lector.imprimirV();
         System.out.println("Mejor Solucion (alfa: "+alfa+")");
         mejor_sol.imprimir();
     }
 
-    static public void imprimir(ArrayList<Vertice> lista) {
-        Vertice v;
-        Camino c;
-        for (int i = 0; i < lista.size(); i++) {
-            v = lista.get(i);
-            System.out.println(v.getNombre());
-            for (int j = 0; j < v.getListaCaminos().size(); j++) {
-                c = v.getListaCaminos().get(j);
-                System.out.println("    " + c.getArista().getNombre() + " " + c.getDestino().getNombre());
-            }
-        }
-    }
+    
 }
