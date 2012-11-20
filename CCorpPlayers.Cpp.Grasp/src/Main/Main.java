@@ -1,31 +1,28 @@
 package Main;
 
-import Estructuras.Arista;
 import Estructuras.Camino;
 import Estructuras.Vertice;
 import Gestores.GRASP;
 import Gestores.Lector;
 import Gestores.Solucion;
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
 
     public static void main(String[] args) {
+        double alfa=0.7;
         Solucion mejor_sol=null;
-        for (int k = 0; k < 10000; k++) {
+        for (int k = 0; k < 3000; k++) {
             Lector.leerArchivo();
             GRASP grasp = new GRASP();
-            Solucion sol = grasp.resolver(Lector.getV(), Lector.getA(), Lector.getVerticeInicial(), 0);
-            sol.imprimir();
-            mejor_sol=Solucion.mejorSolucion(mejor_sol,sol);
+            Solucion sol = grasp.resolver(Lector.getV(), Lector.getA(), Lector.getVerticeInicial(), alfa);
+            if(sol.getTiempo_total()>=0.001){
+                sol.imprimir();
+                mejor_sol=Solucion.mejorSolucion(mejor_sol,sol);
+            }
         }
+        System.out.println();
+        System.out.println("Mejor Solucion (alfa: "+alfa+")");
         mejor_sol.imprimir();
     }
 
