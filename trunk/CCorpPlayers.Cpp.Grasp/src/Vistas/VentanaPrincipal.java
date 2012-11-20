@@ -4,6 +4,7 @@
  */
 package Vistas;
 
+import Gestores.GRASP;
 /**
  *
  * @author Guti
@@ -40,6 +41,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButton2.setText("Resolver");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,6 +86,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //Clase ventana=new Ventana();
         //ventana.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        GRASP grasp=new GRASP();
+        grasp.ejecutar();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

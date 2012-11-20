@@ -7,7 +7,6 @@ package Gestores;
 import Estructuras.Arista;
 import Estructuras.Camino;
 import Estructuras.Vertice;
-import Main.Main;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -45,7 +44,7 @@ public class Lector {
                 }
                 v1 = getV().get(verticeIni);
             } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GRASP.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             Camino c;
@@ -81,10 +80,10 @@ public class Lector {
                     }
                 }
             } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(GRASP.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GRASP.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
