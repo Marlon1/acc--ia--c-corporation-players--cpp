@@ -4,7 +4,7 @@
  */
 package Vistas;
 
-import Gestores.GRASP;
+import Algoritmos.GRASP;
 import javax.swing.JFrame;
 
 /**
@@ -89,17 +89,15 @@ public class VentanaPrincipal extends JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (ventana == null) {
             ventana = new Grafico();
-            ventana.setVisible(true);
         } else {
             ventana.dispose();
             ventana = new Grafico();
-            ventana.setVisible(true);
         }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         GRASP grasp = new GRASP();
-        grasp.ejecutar();
+        grasp.ejecutar(0.6);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
